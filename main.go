@@ -23,7 +23,7 @@ var db *sql.DB
 func main() {
 	var err error
 
-	connStr := "host=postgresql://postgres:FrSqeaLEScFviZupcZlaDaNqmyolVqvE@postgres.railway.internal:5432/railway port=5432 user=postgres password=FrSqeaLEScFviZupcZlaDaNqmyolVqvE dbname=railway sslmode=disable"
+	connStr := "host=postgres.railway.internal port=5432 user=postgres password=FrSqeaLEScFviZupcZlaDaNqmyolVqvE dbname=railway sslmode=disable"
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)
