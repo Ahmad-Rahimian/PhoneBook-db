@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Contact</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Edit Contact</h1>
+    <form method="POST" action="/edit">
+        <input type="hidden" name="index" value="{{.Index}}">
+        <input type="text" name="name" value="{{.Contact.Name}}" required>
+        <input type="text" name="phone" value="{{.Contact.Phone}}" required>
+        <input type="email" name="email" value="{{.Contact.Email}}" required>
+        <button type="submit">Update Contact</button>
+    </form>
+    <a href="/"><button>Back to Contact List</button></a>
+</body>
+
+</html>

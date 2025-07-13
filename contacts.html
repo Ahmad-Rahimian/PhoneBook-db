@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phonebook</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        .actions form {
+            display: inline-block;
+        }
+
+        button {
+            padding: 6px 12px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .add-btn {
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Contacts</h1>
+    <ul>
+        {{range $index, $c := .}}
+        <li>
+            <strong>{{.Name}}</strong><br>
+            Phone: {{.Phone}}<br>
+            Email: {{.Email}}
+            <div class="actions">
+                <form method="GET" action="/edit">
+                    <input type="hidden" name="index" value="{{$index}}">
+                    <button class="edit-btn" type="submit">Edit</button>
+                </form>
+                <form method="GET" action="/delete">
+                    <input type="hidden" name="index" value="{{$index}}">
+                    <button class="delete-btn" type="submit">Delete</button>
+                </form>
+            </div>
+        </li>
+        {{else}}
+        <li>No contacts yet.</li>
+        {{end}}
+    </ul>
+
+    <a class="add-btn" href="/create">Add New Contact</a>
+</body>
+
+</html>
