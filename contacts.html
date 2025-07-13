@@ -76,11 +76,11 @@
             Email: {{.Email}}
             <div class="actions">
                 <form method="GET" action="/edit">
-                    <input type="hidden" name="index" value="{{$index}}">
+                    <input type="hidden" name="id" value="{{$index}}">
                     <button class="edit-btn" type="submit">Edit</button>
                 </form>
                 <form method="GET" action="/delete">
-                    <input type="hidden" name="index" value="{{$index}}">
+                    <input type="hidden" name="id" value="{{$index}}">
                     <button class="delete-btn" type="submit">Delete</button>
                 </form>
             </div>
